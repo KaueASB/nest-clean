@@ -27,8 +27,6 @@ export class CreateQuestionController {
     const userId = user.sub
     const { title, content } = body
 
-    console.log(title, content)
-
     const slug = this.convertToSlug(title)
 
     await this.prisma.question.create({
