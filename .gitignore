@@ -41,3 +41,6 @@ public_key.pem
 
 # Docker
 /data
+
+# Temporário
+README.md

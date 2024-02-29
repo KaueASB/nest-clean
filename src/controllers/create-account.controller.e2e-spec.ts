@@ -28,9 +28,9 @@ describe('Create account (E2E)', () => {
 
     expect(response.status).toBe(201)
 
-    const user = await prisma.user.findMany()
+    const usersOnDatabase = await prisma.user.findMany()
 
-    expect(user[0].name).toBe('John Doe')
-    expect(user).toHaveLength(1)
+    expect(usersOnDatabase[0].name).toBe('John Doe')
+    expect(usersOnDatabase).toHaveLength(1)
   })
 })
