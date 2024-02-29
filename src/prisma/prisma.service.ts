@@ -12,6 +12,7 @@ export class PrismaService
     })
   }
 
+  // o Nest chama automaticamente estes métodos quando o módulo (PrismaService) é instanciado
   onModuleInit() {
     return this.$connect()
   }
