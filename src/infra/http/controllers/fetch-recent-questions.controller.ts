@@ -5,6 +5,7 @@ import { Controller, Get, Query, UseGuards, UsePipes } from '@nestjs/common'
 import { JwtAuthGuard } from '@/infra/auth/jwt-auth.guard'
 import { ZodValidationPipe } from '@/infra/http/pipes/zod-validation-pipe'
 import { FetchRecentQuestionsUseCase } from '@/domain/forum/application/use-cases/fetch-recent-questions'
+import { QuestionPresenter } from '../presenters/question-presenter'
 
 const pageQueryParamSchema = z
   .string()
@@ -35,6 +36,6 @@ export class FetchRecentQuestionsController {
 
     const { questions } = result.value
 
-    return { questions }
+    return { questions: questions.map(QuestionPresenter.toHttp) }
   }
 }
